@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Event tracking example</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js" type="text/javascript"></script>
+	<script src="link-click-analytics.js" type="text/javascript"></script>
+</head>
+<body>
+	<h1>Event tracking example</h1>
+	<p>When you click on <a href="http://www.google.com" data-analytics-event="MyCategory,MyAction,MyLabel,10">this link</a>, Google Analytics will track the event with custom parameters specified by the attribute "data-analytics-event"!</p>
+	<p>When you click on <a href="http://www.google.com" data-analytics-event="">this call to action link</a>, Google Analtyics will track the event with default parameters since none are specified. </p>
+	<p>When you click on <a href="#anchor" data-analytics-event="">a named anchor link</a>, Google Analtyics will track it!</p>
+	<p>When you click on <a href="http://www.google.com">this regular link</a>, nothing unusual will happen and everything will work as normal.</p>
+</body>
+</html>
