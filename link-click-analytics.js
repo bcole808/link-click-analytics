@@ -40,8 +40,14 @@
 			var ga_label 	= attributes[2] || $(e.currentTarget).attr('href') || undefined;
 			var ga_value 	= parseInt(attributes[3]) || undefined;
 
-			// Check to see if Google Analytics is defined
-			if (typeof(_gaq) !== 'undefined') {
+			// Check for Google Universal Analytics
+			if (typeof(ga) !== 'undefined') {
+
+				// Send event to Google Analytics
+				ga('send', 'event', ga_category, ga_action, ga_label, ga_value);
+
+			// Check for ga.js
+			} else if (typeof(_gaq) !== 'undefined') {
 
 				// Send event to Google Analytics
 				_gaq.push(['_trackEvent', ga_category, ga_action, ga_label, ga_value]);
@@ -57,7 +63,7 @@
 				}
 
 			} else {
-				console.log("_gaq was undefined, so no Google Analytics tracking data could be sent.")
+				console.log("Google Analytics is not running, so no Google Analytics tracking data could be sent.")
 			}
 
 		} // end trackAction()
