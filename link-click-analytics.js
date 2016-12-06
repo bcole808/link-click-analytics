@@ -7,6 +7,10 @@
 ***************************************************/
 (function ($) {
 
+	if (typeof $ == 'undefined') {  
+	    return console.warn("jQuery is not loaded!");
+	}
+
 	$(document).ready( function() {
 		linkAnalytics.initialize();
 	});
@@ -14,7 +18,7 @@
 	var linkAnalytics = {
 
 		initialize : function() {
-			$('body').on('click', 'a', linkAnalytics.trackAction);
+			$('body').on('click', '[data-analytics-event]', linkAnalytics.trackAction);
 		}, // end initialize
 
 		trackAction : function(e) {
@@ -29,14 +33,14 @@
 			var attr_string = $(e.currentTarget).attr('data-analytics-event');
 
 			// Do nothing if undefined
-			if (attr_string === undefined) return true;
+			if (!attr_string) return true;
 
 			var attributes 	= attr_string.split(",");
 			var href_url 	= $(e.currentTarget).attr('href') || false;
 			var modifierKey = (e.metaKey || e.ctrlKey);
 
 			var ga_category = attributes[0] || 'Call to Action Link';
-			var ga_action 	= attributes[1] || $(e.currentTarget).html() ||'Click';
+			var ga_action 	= attributes[1] || $(e.currentTarget).text() || 'Click';
 			var ga_label 	= attributes[2] || $(e.currentTarget).attr('href') || undefined;
 			var ga_value 	= parseInt(attributes[3]) || undefined;
 

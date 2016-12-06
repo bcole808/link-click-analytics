@@ -8,7 +8,7 @@ You should already have Google Analytics installed and running on your website; 
 
 1. Make sure you have jQuery included on your page. 
 2. Embed link-click-analytics.js on your page. 
-3. Add the attribute **data-analytics-event** to an HTML link on your web page.
+3. Add the attribute **data-analytics-event** to an HTML link or button on your web page.
 
 Parameters are comma separated and correspond to the four parameters for Event Tracking: Category, Action, Label, and Value. So for example, you might add a parameter to your link that looks like this: 
 
@@ -19,8 +19,8 @@ Parameters are comma separated and correspond to the four parameters for Event T
 If parameters are not specificed, they will default to the following values:
 
 - Category: "Call to Action Link"
-- Action: The inner HTML of the link
-- Label: The URL
+- Action: The inner text of the link
+- Label: The URL (href attribute if present)
 - Value: undefined
 
 
@@ -35,12 +35,6 @@ If parameters are not specificed, they will default to the following values:
 	<a href="http://www.google.com" data-analytics-event="MyCategory,MyAction,MyLabel,10">Buy my product!</a>
 </body>
 ```
-
-# Google Analytics Version
-
-This script currently requires you to use the ga.js script which uses the global _gaq variable. 
-
-https://developers.google.com/analytics/devguides/collection/gajs/eventTrackerGuide
 
 # Notes
 
