@@ -4,6 +4,8 @@
 * This script takes in to account modifier keys to open links in new tabs. 
 * 
 * To run this script, simply include it anywhere on the page. 
+* 
+* https://github.com/bcole808/link-click-analytics
 ***************************************************/
 (function ($) {
 
