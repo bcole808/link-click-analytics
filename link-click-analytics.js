@@ -13,10 +13,6 @@
 	    return console.warn("jQuery is not loaded!");
 	}
 
-	$(document).ready( function() {
-		linkAnalytics.initialize();
-	});
-
 	var linkAnalytics = {
 
 		initialize : function() {
@@ -73,6 +69,11 @@
 			}
 
 		} // end trackAction()
-	} // end linkAnalytics
+	}; // end linkAnalytics
+
+	
+	$(document).ready( function() {
+		linkAnalytics.initialize();
+	});
 
 })(jQuery);
